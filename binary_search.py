@@ -1,10 +1,11 @@
+import random
+import math
 
-
-#divide to conquer
-def main():
+def binary_search(input_list: list, target: int):
+    """"
+    Binary search algorithm - O(log n) coplexity
+    """
     counter = 0
-    target = 3
-    input_list = [1,2,4,3]
     input_list.sort()
     start = 0
     end = len(input_list) - 1
@@ -20,5 +21,13 @@ def main():
     print(f"Needed {counter} steps to find")
 
 
+def generate_ramdom_list():
+    size = math.ceil(random.random() * 10)
+    return [math.ceil(random.random() * 10) for _ in range(0, size)]
+    
 if __name__ == "__main__":
-    main()
+    input_list = generate_ramdom_list()
+    target = random.choice(input_list)
+    print(input_list, target)
+    binary_search(input_list, target)
+   
